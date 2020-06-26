@@ -1,0 +1,71 @@
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" (click)="closeSideNav()">&times;</a>
+
+    <a routerLink="accueil" style="cursor: pointer"><i class="ti-home"></i> Accueil</a>
+    <a (click)="onSignOut()" style="cursor: pointer" routerLink="accueil"><i class="ti-power-off"></i> déconnecter</a>
+    <hr>
+
+    <a routerLink="/page-promoteur/newPub" style="cursor: pointer"><i class="ti-upload"></i> Nouvelle offre</a>
+    <a style="cursor: pointer" (click)="ModifPub()"><i class="ti-pencil"></i> Modifier une offre</a>
+    <a style="cursor: pointer" (click)="SideNavDelete()"><i class="ti-close"></i> Supprimer une offre</a>
+    <!--s
+    <a style="cursor: pointer"><i class="ti-list"></i> Lister mes offres</a>
+    -->
+    <hr>
+
+    <a routerLink="/modifier-son-compte" style="cursor: pointer"><i class="ti-pencil"></i> Modifier le compte</a>
+    <a style="cursor: pointer" (click)="deleteUser()"><i class="ti-close"></i> Supprimer le compte</a>
+    <a routerLink="/page-promoteur-mail" style="cursor: pointer"><i class="ti-email"></i> Messages</a>
+
+</div>
+  
+<div class="container">
+    <div id="main">
+        <mat-toolbar color="primary">
+            <span><a routerLink="accueil" style="cursor: pointer; color: white;">K&N immo</a></span>
+
+            <span class="example-fill-remaining-space"></span>
+            <h4 style="color: white; margin-right: 2%">Bonjour {{user.surname}} {{user.name}}</h4>
+        
+            <span><i class="ti-user"></i></span>
+        </mat-toolbar>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <h2 style="text-align: center;">Bienvenue cher promoteur</h2>
+        <!--
+        <p style="text-align: center;">Quelques statistiques pour vous</p>
+        -->
+
+      <button  *ngFor="let pub of respub; let i = index" style="margin-left: 10px; margin-bottom: 10px;">
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img style="width:350px;height:300px;" alt="Photo de la publication" *ngIf="pub.photo" [src]="pub.photo">
+              </div>
+              <div class="flip-card-back">
+                <h2 style="color: white;">{{ pub.fonction }}</h2> 
+                <p style="color: white;">Type: {{ pub.type }}</p> 
+                <p style="color: white;">Superficie: {{ pub.superficie }} m²</p>
+                <p style="color: white;">Prix: {{ pub.prix }}€</p>
+                <p style="color: white;">Adresse: {{ pub.adresse }}</p>
+                <p style="text-decoration: underline; color: white;">Contact du proprio</p>
+                <p style="color: white;">Email: {{ pub.user.email }}</p>
+                <p style="color: white;">Numero de telephone: {{ pub.user.phoneNumber }}</p>  
+              </div>
+            </div>
+          </div>
+            <a style="cursor: pointer" style="color: red;" *ngIf="isDelete" (click)="DeletePub(pub)">
+                <i class="ti-close" style="color: red;"></i> Supprimer l'offre
+                <p>{{identifiant}}</p>
+            </a>
+            <a style="cursor: pointer" style="color: red;" *ngIf="isModif" (click)="onViewModifPub(pub)">
+              <i class="ti-pencil" style="color: red;"></i> Modifier l'offre
+              <p>{{identifiant}}</p>
+            </a>
+
+      </button>
+      
+    </div>
+</div>

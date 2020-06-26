@@ -1,0 +1,116 @@
+<!--================Category Product Area =================-->
+<section class="cat_product_area section_padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="left_sidebar_area">
+
+                    <aside class="left_widgets p_filter_widgets">
+                        <div class="l_w_title">
+                            <h3>Offres par categories</h3>
+                        </div>
+                        <div class="widgets_inner" style="cursor: pointer">
+                            <ul class="list">
+                                <li>
+                                    <a (click)="resetOffer()">Toutes les offres</a>
+                                </li>
+                                <li *ngFor="let offerType of offerTypeSlice; let i = index" >
+                                        <a *ngIf="offerType.number > 0" (click)="sliceOfferPubByCategory(offerType.type)">{{offerType.type}}</a><span *ngIf="offerType.number > 0">({{offerType.number}})</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="product_top_bar d-flex justify-content-between align-items-center">
+                            <div class="single_product_menu">
+                                <p><span>{{offresPub.length}}</span> Offre(s) trouvée(s)</p>
+                            </div>
+
+                            <div class="single_product_menu d-flex">
+                                <!--<h5>trier par : </h5>
+                                <select>
+                                    <option data-display="Select">prix</option>
+                                    <option value="1">type</option>
+                                    <option value="2">superficie</option>
+                                </select>-->
+
+                                <mat-form-field>
+                                    <mat-label>Trier par :</mat-label>
+                                    <mat-select [(value)]="selected">
+                                      <mat-option>None</mat-option>
+                                      <mat-option value="prix">prix</mat-option>
+                                      <mat-option value="superficie">superficie</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+
+                           <!-- <div class="single_product_menu d-flex">
+                                <h5>show :</h5>
+                                <div class="top_pageniation">
+                                    <ul>
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                    </ul>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center latest_product_inner">
+
+                    <div *ngFor="let pub of offresPubSlice; let i = index" class="col-lg-4 col-sm-6">
+                        <div class="single_product_item">
+                            <img alt="Pas d'image" *ngIf="pub.photo" [src]="pub.photo">
+                            <div class="single_product_text">
+                                <h4>{{ pub.fonction }}</h4>
+                                <h3>{{ pub.prix }}€</h3>
+                                <p>
+                                    <a (click)="contacter(pub)" style="cursor: pointer;"> CONTACTER LE PROMOTEUR<i class="ti-comment-alt"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                   <!-- <div class="col-lg-12">
+                        <div class="pageination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <i class="ti-angle-double-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <i class="ti-angle-double-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Category Product Area =================-->

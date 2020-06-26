@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="bg-gra-01 p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card-6">
+                <div class="card-heading">
+                    <h2 class="title">Publier une Offre</h2>
+                </div>
+                <div class="card-body">
+
+
+                    <form [formGroup]="imgForm" (ngSubmit)="onSubmit()">
+                        <div class="form-row">
+                            <div class="name">Type</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="type" placeholder="F2, F3, F4 ... "
+                                formControlName="type">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Fonction</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="fonction" 
+                                    placeholder="magasin, boutique, bureau, habitations ..." formControlName="fonction">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Adresse</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="adresse" 
+                                    placeholder="12 rue ..., 75012 Paris" formControlName="adresse">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Prix</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="number" name="prix" placeholder="250" formControlName="prix">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Superficie</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="number" name="superficie" placeholder="29" formControlName="superficie">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" form-row form-group">
+                            <h4 class="name">Télecharger une image</h4>
+                            <div>
+                                <input class="input-file" type="file" (change)="detectFiles($event)" 
+                                       class="form-control" accept="image/*" [disabled]="fileUploaded">
+
+                                <p *ngIf="fileIsUploading"><i class="fa fa-spinner fa-pulse" style="font-size: x-large;"></i> chargement...</p>
+                                <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+
+                                <button *ngIf="fileUploaded" (click)="deleteFile()" type="button" 
+                                        class="btn btn--pill btn-outline-danger" style="background-color:rgb(255, 107, 107)">
+                                    Supprimer le ficher avant de recharger un autre
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="label--desc" style="margin-left: 26%;">Télecharger l'image de description de votre annonce. Attention taille limite de 150 kB</div>
+                        
+                        <div class="card-footer">
+                            <div class="container">
+                                <div class="row" >
+                                  <div class="col-lg-6 col-md-6" > 
+                                    <button type="submit" [disabled]="imgForm.invalid || fileIsUploading" 
+                                            class="btn btn--pill btn--green"> Publier </button>
+                                  </div>
+                                  <div class="col-lg-4 col-md-4 offset-lg-2 offset-md-2" > 
+                                    <button type="button" class="btn btn--pill btn-outline-danger"><a routerLink="/page-promoteur"> Annuler </a></button>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

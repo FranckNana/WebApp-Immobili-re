@@ -1,0 +1,94 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-4 col-md-4 col-sm-12">
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-back">
+            <img style="width:350px;height:300px;" alt="Photo de la publication" *ngIf="resPub.photo" [src]="resPub.photo">
+          </div>
+          <div class="flip-card-front">
+            <h2>{{ resPub.fonction }}</h2> 
+            <p>Type: {{ resPub.type }}</p> 
+            <p>Superficie: {{ resPub.superficie }} m²</p>
+            <p>Prix: {{ resPub.prix }}€</p>
+            <p>Adresse: {{ resPub.adresse }}</p>
+            <p style="color: white; text-decoration: underline;">Contact du proprio</p>
+            <p>Email: {{ resPub.user.email }}</p>
+            <p>Numero de telephone: {{ resPub.user.phoneNumber }}</p> 
+          </div>
+        </div>
+      </div>
+
+      <button style="margin-top: 15px" class="btn_3" (click)="onBack()">Retour</button>
+    </div>
+
+    <div class="col-xs-12 col-lg-7 col-md-7 col-sm-12 offset-lg-1 offset-md-1">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+        <div class="form-group">
+          <label for="fonction">
+            Modifier La fonction de la publication
+          </label>
+          <input type="text" id="fonction" class="form-control" name="fonction" [(ngModel)]="resPub.fonction">
+        </div>
+
+        <div class="form-group">
+          <label for="type">
+            Modifier Le type de la publication
+          </label>
+          <input type="text" id="type" class="form-control" name="type" [(ngModel)]="resPub.type">
+        </div>
+
+        <div class="form-group">
+          <label for="superficie">
+            Modifier La superficie de la publication
+          </label>
+          <input type="number" id="superficie" class="form-control" name="superficie" [(ngModel)]="resPub.superficie">
+        </div>
+
+        <div class="form-group">
+          <label for="prix">
+            Modifier Le prix de la publication
+          </label>
+          <input type="number" id="prix" class="form-control" name="prix" [(ngModel)]="resPub.prix">
+        </div>
+
+        <div class="form-group">
+          <label for="adresse">
+            Modifier L'adresse de la publication
+          </label>
+          <input type="text" id="adresse" class="form-control" name="adresse" [(ngModel)]="resPub.adresse">
+        </div>
+
+        <div class="form-group">
+          <button *ngIf="fileUploaded" (click)="deleteFile()" type="button" 
+                  class="btn btn--pill btn-outline-danger" style="background-color:rgb(255, 107, 107)">
+              Supprimer le ficher avant de recharger un autre
+          </button>
+
+          <h4 *ngIf="!fileUploaded" class="name">Télecharger une image</h4>
+          <div *ngIf="!fileUploaded">
+              <input class="input-file" type="file" (change)="detectFiles($event)" 
+                     class="form-control" accept="image/*" [disabled]="fileUploaded">
+
+              <p *ngIf="fileIsUploading"><i class="fa fa-spinner fa-pulse" style="font-size: x-large;"></i> chargement...</p>
+              <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+              
+          </div>
+
+      </div>
+      <div class="label--desc" style="margin-left: 26%;">Télecharger l'image de description de votre annonce. Attention taille limite de 150 kB</div>
+
+            <button type="submit" style="margin-top: 15px" class="btn_3">Modification</button>
+          </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  

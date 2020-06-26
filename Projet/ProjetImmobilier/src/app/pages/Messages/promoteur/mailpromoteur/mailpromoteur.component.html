@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="margin-top: 10%">
+            <div class="container">
+                <h3>Formulaire de contact </h3><hr><br><br>
+
+                <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="Your name.." formControlName="nom">
+
+                    <label for="emailDst">Email Destinataire</label>
+                    <input type="text" id="emailDst" name="emailDst" placeholder="Your Email..." formControlName="emailDst">
+
+                    <label for="emailFrom">votre Email</label>
+                    <input type="text" id="emailFrom" name="emailFrom" placeholder="Your Email..." formControlName="emailFrom">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write something.." style="height:200px" formControlName="message"></textarea>
+                    
+                    <input type="submit" value="Submit">
+                </form>
+                <button style="margin-top: 15px" class="btn_3" (click)="onBack()">Retour</button>
+            </div>
+
+
+            <div class="container">
+                <h3>Mes Messages</h3><hr><br><br>
+                <div class="row">
+                    <div class="col-sm-12">
+                      <div class="list-group" *ngFor="let mail of respemail; let i = index">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Envoyé Par</th>
+                                    <th colspan="2">mail du destinateur</th>
+                                    <th colspan="2">contenu du mail</th>
+                                </tr>
+                            </thead>
+                         </table>
+                         <table>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4">{{ mail.nom }}</td>
+                                    <td colspan="4">{{ mail.emailFrom }}</td>
+                                    <td colspan="4">{{ mail.message }}</td>
+                                </tr>
+                            </tbody>
+                         </table>
+                      </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

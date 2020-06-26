@@ -1,0 +1,37 @@
+1) page d'accueil : on s'inspire de Leboncoin
+- image de fond (à gérer apres)
+- carousel (images prises dans la base avec des requetes)
+- barre de menu : 
+	- client : menu deroulant avec "s'inscrire" ou "se connecter"
+	- promoteur : menu deroulant avec "s'inscrire" ou "se connecter"
+	- logo(nom du site) à gauche de la barre de menu
+- affichage des statistiques (nbre de promoteur, de clients, d'annonces)
+
+2) page du promoteur : on s'inspire de "mon compte Cdiscount"
+- menu à gauche :
+	- accueil
+	- se deconnecter
+	- infos personnelles
+	- publications
+- un "container" "Mes publications" : 
+	- qui affiche de façon standard la dernière pub.,
+		et permet de voir les autres pub. aussi.
+	- un onglet (ou bouton) "publier une offre" qui redirige le promoteur vers une
+		page avec un formulaire pour renseigner son offre(type, fonction, superficie, photo, prix, adresse)
+	- supprimer une publication ( avec un boutin "vendu" qui supprime aussi l'offre si vendue)
+	- supprimer mon compte
+
+2) page du client : on s'inspire de "mon compte Cdiscount"
+- menu à gauche :
+	- accueil
+	- se deconnecter
+	- infos personnelles
+	- ???
+	- supprimer mon compte
+	
+3) page des offres (après s'être connecté) : on s'inspire de Leboncoin	
+- permettre au client de noter et laisser des commentaires sur les promoteurs et leurs publications.
+- contacter le promoteur (messagerie) ---- à gérer après !!!!
+- faire de la recherche avancée (avec filtrage d'éléments)
+
+	

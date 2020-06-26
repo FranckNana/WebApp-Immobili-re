@@ -1,0 +1,19 @@
+.hearer_icon button{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: transparent ;
+  background-image: linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%);
+  color: white;
+}
+
+.hearer_icon .ti-power-off{
+    font-size: 150%;
+}
+
+.hearer_icon button:hover{
+    background-image: unset;
+    background-color: white;
+    color: #ff3368;
+
+}

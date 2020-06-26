@@ -1,0 +1,51 @@
+
+<!--================login_part Area =================-->
+<section class="login_part padding_top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_text text-center">
+                    <div class="login_part_text_iner">
+                        <h2>Nouveau promoteur ?</h2>
+                        <p>Enregistrez vous et faites parvenir au monde
+                            entier les offres les plus alléchantes
+                        </p>
+                        <a routerLink="/auth/signupSinglePage" class="btn_3">Créer un compte promoteur</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>Bon retour parmi nous très cher promoteur ! <br>
+                            Connectez vous dès à présent</h3>
+
+
+                        <form class="row contact_form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" id="email" class="form-control" formControlName="email" 
+                                       placeholder="Entrer votre adresse e-mail">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="password" id="password" class="form-control" formControlName="password" 
+                                       placeholder="Entre votre mot de passe">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" [disabled]="signInForm.invalid" class="btn_3">
+                                    Se connecter
+                                </button>
+
+                                <p class="text-danger">{{ errorMessage }}</p>
+
+                                <!--<a class="lost_pass" href="#">forget password?</a> -->
+                            </div>
+                        </form>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================login_part end =================-->

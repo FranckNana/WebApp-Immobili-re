@@ -1,0 +1,27 @@
+IDEES :
+
+- POUR L'AUTHENTIFICATION DES URILISATEURS : 
+firebase ne promposant pas la distinction client-promoteur dans notre cas, il faudrait avoir une table dans notre base de donées, dans laquelle sont enregistrés les urilisateurs :
+
+|-----------|--------------|-------------------------|
+|@email     | mot de passe | type de compte (booléen)|
+|-----------|--------------|-------------------------|
+|abcd@fr.fr | xxxxxxxxxxxx | 0 pour client           |
+|efgh@fr.fr | xxxxxxxxxxxx | 1 pour promoteur        |
+|----------------------------------------------------|
+
+Ainsi firebase nous sert à assurer juste l'authentification
+
+- POUR LA CONNEXION : 
+Page "login" ensuite choisir soit de se connecter, soit de s'inscrire
+
+- POUR LA PUBLICATION D'UNE OFFRE : 
+En plus des caractéristiques de la publication, rajouter implicitement les coordonnées du promoteur à l'offre
+
+- POUR LE MAINTIEN DE LA CONNEXION D'UN UTILISATEUR APRES RAFRAICHISSEMENT DE LA PAGE WEB : 
+Au moment de la connexion ou de la création d'un compte, l'utilisateur renseigne son e-mail,
+donc on a un moyen d'aller récupérer en base son "objet User". S'il rafraichit la page ça se gâte
+un peu car on a plus moyen de connaître ses infos vu qu'il ne l'ai a renseigné qu'une fois et que
+l'application a redémarré. On ne lui demandera pas à nouveau son e-mail. On stocke dont dans son navigateur
+son e-mail dans le fichier "sessionStorage" qui le garde jusqu'à sa fermeture, et dont on aura accès tout au long
+de la connexion d'un user pour recupérer ses infos en base. Plus de détails vers : https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage

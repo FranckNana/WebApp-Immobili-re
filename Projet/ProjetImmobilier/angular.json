@@ -1,0 +1,175 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ProjetImmobilier": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ProjetImmobilier",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets/img/avatar2.png",
+              "src/assets/img/avatar3.png",
+              "src/assets/img/logo.png",
+              "src/assets/img/bannerImg.png",
+              "src/assets/img/login.jpg",
+              "src/assets/img/caroOne.png",
+              "src/assets/img/caroTwo.jpg",
+              "src/assets/img/product/product1.png",
+              "src/assets/img/product/product2.png",
+              "src/assets/img/product/product3.png",
+              "src/assets/img/product/product4.png",
+              "src/assets/img/product/product5.png",
+              "src/assets/img/product/product6.png",
+              "src/assets/img/product/product7.png",
+              "src/assets/img/product/product8.png"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              
+              "src/assets/css/animate.css",
+              "src/assets/css/all.css",
+              "src/assets/css/flaticon.css",
+              "src/assets/css/themify-icons.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/style.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/singlepubmain.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "./node_modules/bootstrap/js/dist/util.js",
+              "./node_modules/bootstrap/js/dist/carousel.js",
+
+              "src/assets/js/jquery-1.12.1.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/jquery.magnific-popup.js",
+              "src/assets/js/swiper.min.js",
+              "src/assets/js/masonry.pkgd.js",
+              "src/assets/js/jquery.js",
+              "src/assets/js/jquery.nice-select.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/jquery.counterup.min.js",
+              "src/assets/js/waypoints.min.js",
+              "src/assets/js/contact.js",
+              "src/assets/js/jquery.ajaxchimp.min.js",
+              "src/assets/js/jquery.form.js",
+              "src/assets/js/jquery.validate.min.js",
+              "src/assets/js/mail-script.js",
+              "src/assets/js/stellar.js",
+              "src/assets/js/price_rangs.js",
+              "src/assets/js/mail-script.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/sidebarPromotor.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ProjetImmobilier:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ProjetImmobilier:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ProjetImmobilier:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "ProjetImmobilier:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ProjetImmobilier:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ProjetImmobilier"
+}
